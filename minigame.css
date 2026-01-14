@@ -1,0 +1,223 @@
+/* =========================
+   RESET + THEME VARIABLES
+========================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --txt: rgba(30, 30, 45, 0.92);
+
+  --glass: rgba(255, 255, 255, 0.28);
+  --glass-2: rgba(255, 255, 255, 0.18);
+  --stroke: rgba(255, 255, 255, 0.45);
+
+  --shadow: 0 18px 45px rgba(0, 0, 0, 0.14);
+  --shadow-soft: 0 10px 22px rgba(0, 0, 0, 0.1);
+
+  --radius-xl: 22px;
+  --radius-lg: 18px;
+}
+
+/* =========================
+   PAGE BACKGROUND
+========================= */
+body {
+  min-height: 100vh;
+  font-family: Consolas, monospace;
+  color: var(--txt);
+
+  background:
+    radial-gradient(circle at 18% 12%, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0) 45%),
+    radial-gradient(circle at 78% 22%, rgba(255, 220, 246, 0.85), rgba(255, 255, 255, 0) 50%),
+    radial-gradient(circle at 22% 78%, rgba(210, 238, 255, 0.8), rgba(255, 255, 255, 0) 55%),
+    linear-gradient(135deg, #b7d8ff, #ffd1e8, #fff6c9);
+}
+
+/* =========================
+   GLASS UTILITY
+========================= */
+.glass {
+  background: var(--glass);
+  border: 1px solid var(--stroke);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* =========================
+   MAIN WRAPPER
+========================= */
+.layout {
+  width: min(1100px, 92vw);
+  margin: 18px auto 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* =========================
+   HERO HEADER
+========================= */
+.heroHeader {
+  position: relative;
+  width: 100%;
+  height: 190px;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.heroImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.05);
+  filter: saturate(1.05) contrast(1.02);
+}
+
+/* =========================
+   NAV (inside hero)
+========================= */
+.topbar {
+  position: absolute;
+  left: 50%;
+  bottom: 14px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 14px;
+  padding: 10px 14px;
+  border-radius: 999px;
+}
+
+.navlink {
+  text-decoration: none;
+  color: rgba(25, 25, 40, 0.92);
+  padding: 8px 12px;
+  border-radius: 999px;
+  transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease;
+}
+
+.navlink:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: translateY(-1px);
+}
+
+.navlink.active {
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+}
+
+/* =========================
+   QUIZ CARD
+========================= */
+.quizzCard{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 14px 0;
+}
+
+/* inner card */
+.quizzCard .container{
+  width: min(560px, 92vw);
+  padding: 22px 22px 18px;
+  border-radius: var(--radius-xl);
+  background: var(--glass-2);
+  border: 1px solid var(--stroke);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* title */
+.question{
+  font-size: 26px;
+  letter-spacing: 0.5px;
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+/* =========================
+   CHOICES
+========================= */
+.mulChoice{
+  display: grid;
+  gap: 10px;
+  margin: 12px 0 14px;
+}
+
+/* each choice row look */
+.mulChoice label{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.22);
+  border: 1px solid rgba(255,255,255,0.35);
+  cursor: pointer;
+  transition: transform 160ms ease, background 160ms ease, border 160ms ease;
+}
+
+.mulChoice label:hover{
+  transform: translateY(-1px);
+  background: rgba(255,255,255,0.30);
+  border: 1px solid rgba(255,255,255,0.5);
+}
+
+/* radio sizing */
+.mulChoice input[type="radio"]{
+  width: 18px;
+  height: 18px;
+  accent-color: rgba(70, 80, 120, 0.9);
+}
+
+/* remove your <br> spacing effect visually */
+.mulChoice br{ display:none; }
+
+/* =========================
+   BUTTONS
+========================= */
+#submit, #reset{
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+  border-radius: 999px;
+  padding: 10px 16px;
+  box-shadow: var(--shadow-soft);
+  transition: transform 160ms ease, filter 160ms ease;
+}
+
+#submit{
+  width: 100%;
+  background: rgba(255,255,255,0.45);
+  border: 1px solid rgba(255,255,255,0.6);
+}
+
+#submit:hover, #reset:hover{
+  transform: translateY(-1px);
+  filter: brightness(1.03);
+}
+
+#reset{
+  align-self: center;
+  background: rgba(255,255,255,0.28);
+  border: 1px solid rgba(255,255,255,0.45);
+  padding: 10px 18px;
+}
+
+/* =========================
+   ANSWER / FEEDBACK TEXT
+========================= */
+#answer{
+  margin-top: 12px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.22);
+  border: 1px solid rgba(255,255,255,0.35);
+  line-height: 1.4;
+  min-height: 48px; /* keeps layout stable even when empty */
+}
