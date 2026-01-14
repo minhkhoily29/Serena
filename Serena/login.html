@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Serena</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Welcome screen -->
+  <div id="welcome-quote" class="screen active">
+    <h1>Hello beautiful</h1>
+    <p>Let's unwrap the gift together 🎁</p>
+    <button id="startedBt">Click to get started</button>
+  </div>
+
+  <!-- Login screen -->
+  <div id="container" class="screen">
+    <div class="login glass" id="loginCard">
+      <h2 id="title">Log in</h2>
+
+      <form>
+        <label for="uname">User:</label>
+        <input type="text" id="uname" name="uname" autocomplete="username" />
+
+        <label for="pass">Password:</label>
+        <input type="password" id="pass" name="pass" autocomplete="current-password" />
+      </form>
+
+      <button class="primary" id="loginBt" type="button">Login</button>
+      <p id="loginMsg"></p>
+
+      <button class="link" id="forgotBt" type="button">Forgot password?</button>
+
+      <!-- tiny popup -->
+      <div id="hint" class="hint" aria-hidden="true">
+        Hint: Try the birthday + your favorite snack 🍰
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
