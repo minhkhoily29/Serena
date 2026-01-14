@@ -18,7 +18,7 @@ const dBank = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"];
 document.getElementById("mulChoice").addEventListener("submit", function(e){
     e.preventDefault();
     const selected = document.querySelector('input[name="q1"]:checked');
-    
+
     if(!selected) {
         alert("Please select an answer!");
         return;
