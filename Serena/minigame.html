@@ -24,24 +24,33 @@
           <h2 class="qHeader">Question 1</h2>
           <p class="question">What is today date?</p>
           <form id="mulChoice">
-            <label for="a1">a1</label>
-            <input type="radio" id="a1" name="a1" />
-            <br />
-            <label for="a2">a2</label>
-            <input type="radio" id="a2" name="a2" />
-            <br />
-            <label for="a3">a3</label>
-            <input type="radio" id="a3" name="a3" />
-            <br />
-            <label for="a4">a4</label>
-            <input type="radio" id="a4" name="a4" />
+            <label class="choice" for="a1">
+              <input type="radio" id="a1" name="choice" value="0" />
+              <span class="choiceText">a1</span>
+            </label>
+
+            <label class="choice" for="a2">
+              <input type="radio" id="a2" name="choice" value="1" />
+              <span class="choiceText">a2</span>
+            </label>
+
+            <label class="choice" for="a3">
+              <input type="radio" id="a3" name="choice" value="2" />
+              <span class="choiceText">a3</span>
+            </label>
+
+            <label class="choice" for="a4">
+              <input type="radio" id="a4" name="choice" value="3" />
+              <span class="choiceText">a4</span>
+            </label>
           </form>
+
           <button id="submit">Submit</button>
           <p id="answer">aa</p>
         </div>
       </div>
       <button id="reset">Play Again?</button>
     </main>
-    <script src="script.js"></script>
+    <script src="minigame.js"></script>
   </body>
 </html>

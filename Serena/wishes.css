@@ -1,0 +1,201 @@
+/* =========================
+   RESET + THEME VARIABLES
+========================= */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --txt: rgba(30, 30, 45, 0.92);
+
+  --glass: rgba(255, 255, 255, 0.28);
+  --glass-2: rgba(255, 255, 255, 0.18);
+  --stroke: rgba(255, 255, 255, 0.45);
+
+  --shadow: 0 18px 45px rgba(0, 0, 0, 0.14);
+  --shadow-soft: 0 10px 22px rgba(0, 0, 0, 0.10);
+
+  --radius-xl: 22px;
+  --radius-lg: 18px;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Consolas, monospace;
+  color: var(--txt);
+
+  background:
+    radial-gradient(circle at 18% 12%, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0) 45%),
+    radial-gradient(circle at 78% 22%, rgba(255, 220, 246, 0.85), rgba(255, 255, 255, 0) 50%),
+    radial-gradient(circle at 22% 78%, rgba(210, 238, 255, 0.8), rgba(255, 255, 255, 0) 55%),
+    linear-gradient(135deg, #b7d8ff, #ffd1e8, #fff6c9);
+}
+
+/* =========================
+   GLASS UTILITY
+========================= */
+.glass {
+  background: var(--glass);
+  border: 1px solid var(--stroke);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* =========================
+   MAIN WRAPPER
+========================= */
+.layout {
+  width: min(1100px, 92vw);
+  margin: 18px auto 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* =========================
+   HERO HEADER
+========================= */
+.heroHeader {
+  position: relative;
+  width: 100%;
+  height: 190px;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.heroImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.05);
+  filter: saturate(1.05) contrast(1.02);
+}
+
+/* =========================
+   NAV (inside hero)
+========================= */
+.topbar {
+  position: absolute;
+  left: 50%;
+  bottom: 14px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 14px;
+  padding: 10px 14px;
+  border-radius: 999px;
+}
+
+.navlink {
+  text-decoration: none;
+  color: rgba(25, 25, 40, 0.92);
+  padding: 8px 12px;
+  border-radius: 999px;
+  transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease;
+}
+
+.navlink:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: translateY(-1px);
+}
+
+.navlink.active {
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+}
+
+/* =========================
+   LETTER
+========================= */
+.letter {
+  padding: 26px;
+  border-radius: var(--radius-xl);
+  background: var(--glass-2);
+  border: 1px solid var(--stroke);
+  box-shadow: var(--shadow);
+}
+
+.letter h1 {
+  font-size: 34px;
+  letter-spacing: 0.5px;
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.sub {
+  text-align: center;
+  opacity: 0.85;
+  margin-bottom: 16px;
+}
+
+.letterBody {
+  background: rgba(255,255,255,0.20);
+  border: 1px solid rgba(255,255,255,0.35);
+  border-radius: var(--radius-lg);
+  padding: 18px;
+  line-height: 1.65;
+}
+
+.letterBody p {
+  margin-bottom: 12px;
+}
+
+.sign {
+  text-align: right;
+  margin-top: 10px;
+  opacity: 0.9;
+}
+
+/* =========================
+   WISH CARDS GRID
+========================= */
+.wishGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+@media (max-width: 900px) {
+  .wishGrid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+  .wishGrid { grid-template-columns: 1fr; }
+}
+
+/* =========================
+   WISH CARD
+========================= */
+.wishCard {
+  padding: 18px;
+  border-radius: var(--radius-xl);
+  background: rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.45);
+  box-shadow: var(--shadow-soft);
+  transition: transform 180ms ease, filter 180ms ease;
+}
+
+.wishCard:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.03);
+}
+
+.wishCard h2 {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.wishCard p {
+  opacity: 0.92;
+  line-height: 1.55;
+}
+
+/* =========================
+   TINY FOOTER NOTE
+========================= */
+.tinyNote {
+  align-self: center;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.20);
+  border: 1px solid rgba(255,255,255,0.40);
+}

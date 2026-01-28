@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery</title>
+    <link rel="stylesheet" href="gallery.css" />
+  </head>
+
+  <body>
+    <main class="layout">
+      <header class="heroHeader">
+        <img src="header.jpg" alt="Header image" class="heroImage" />
+
+        <nav class="topbar glass">
+          <a class="navlink" href="homepage.html">Home</a>
+          <a class="navlink" href="minigame.html">Minigame</a>
+          <a class="navlink" href="wishes.html">Wishes</a>
+          <a class="navlink active" href="gallery.html">Gallery</a>
+        </nav>
+      </header>
+
+      <section class="galleryCard glass">
+        <div class="galleryHead">
+          <h1>Gallery ✨</h1>
+          <p>Click a photo to view it bigger.</p>
+        </div>
+
+        <!-- Put your images here -->
+        <div class="galleryGrid">
+          <button class="tile" type="button">
+            <img src="Riri1.jpg" alt="Memory 1" />
+          </button>
+
+          <button class="tile" type="button">
+            <img src="Riri2.jpg" alt="Memory 2" />
+          </button>
+
+          <button class="tile" type="button">
+            <img src="Riri3.jpg" alt="Memory 3" />
+          </button>
+
+          <button class="tile" type="button">
+            <img src="Riri4.jpg" alt="Memory 4" />
+          </button>
+
+          <button class="tile" type="button">
+            <img src="Riri5.jpg" alt="Memory 5" />
+          </button>
+
+          <button class="tile" type="button">
+            <img src="Riri6.jpg" alt="Memory 6" />
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+      <div class="lightboxInner glass">
+        <button class="closeBtn" id="closeBtn" type="button" aria-label="Close">
+          ✕
+        </button>
+        <img id="lightboxImg" src="" alt="Expanded photo" />
+        <p class="hint">Click outside or press ESC to close</p>
+      </div>
+    </div>
+
+    <script>
+      const tiles = document.querySelectorAll(".tile img");
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightboxImg");
+      const closeBtn = document.getElementById("closeBtn");
+
+      function openLightbox(src, alt) {
+        lightboxImg.src = src;
+        lightboxImg.alt = alt || "Photo";
+        lightbox.classList.add("open");
+        lightbox.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove("open");
+        lightbox.setAttribute("aria-hidden", "true");
+        lightboxImg.src = "";
+        document.body.style.overflow = "";
+      }
+
+      tiles.forEach((img) => {
+        img.addEventListener("click", () => openLightbox(img.src, img.alt));
+      });
+
+      closeBtn.addEventListener("click", closeLightbox);
+
+      lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) closeLightbox();
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeLightbox();
+      });
+    </script>
+  </body>
+</html>

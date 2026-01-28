@@ -1,0 +1,229 @@
+/* =========================
+   RESET + THEME VARIABLES
+========================= */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root{
+  --txt: rgba(30, 30, 45, 0.92);
+
+  --glass: rgba(255, 255, 255, 0.28);
+  --glass-2: rgba(255, 255, 255, 0.18);
+  --stroke: rgba(255, 255, 255, 0.45);
+
+  --shadow: 0 18px 45px rgba(0, 0, 0, 0.14);
+  --shadow-soft: 0 10px 22px rgba(0, 0, 0, 0.10);
+
+  --radius-xl: 22px;
+  --radius-lg: 18px;
+}
+
+body{
+  min-height: 100vh;
+  font-family: Consolas, monospace;
+  color: var(--txt);
+
+  background:
+    radial-gradient(circle at 18% 12%, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0) 45%),
+    radial-gradient(circle at 78% 22%, rgba(255, 220, 246, 0.85), rgba(255, 255, 255, 0) 50%),
+    radial-gradient(circle at 22% 78%, rgba(210, 238, 255, 0.8), rgba(255, 255, 255, 0) 55%),
+    linear-gradient(135deg, #b7d8ff, #ffd1e8, #fff6c9);
+}
+
+/* =========================
+   GLASS UTILITY
+========================= */
+.glass{
+  background: var(--glass);
+  border: 1px solid var(--stroke);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* =========================
+   MAIN WRAPPER
+========================= */
+.layout{
+  width: min(1100px, 92vw);
+  margin: 18px auto 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* =========================
+   HERO HEADER
+========================= */
+.heroHeader{
+  position: relative;
+  width: 100%;
+  height: 190px;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.heroImage{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.05);
+  filter: saturate(1.05) contrast(1.02);
+}
+
+/* =========================
+   NAV (inside hero)
+========================= */
+.topbar{
+  position: absolute;
+  left: 50%;
+  bottom: 14px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 14px;
+  padding: 10px 14px;
+  border-radius: 999px;
+}
+
+.navlink{
+  text-decoration: none;
+  color: rgba(25, 25, 40, 0.92);
+  padding: 8px 12px;
+  border-radius: 999px;
+  transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease;
+}
+
+.navlink:hover{
+  background: rgba(255, 255, 255, 0.35);
+  transform: translateY(-1px);
+}
+
+.navlink.active{
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+}
+
+/* =========================
+   GALLERY CARD
+========================= */
+.galleryCard{
+  padding: 22px;
+  border-radius: var(--radius-xl);
+  background: var(--glass-2);
+  border: 1px solid var(--stroke);
+  box-shadow: var(--shadow);
+}
+
+.galleryHead{
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.galleryHead h1{
+  font-size: 34px;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+.galleryHead p{
+  opacity: 0.85;
+}
+
+/* =========================
+   GRID
+========================= */
+.galleryGrid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+@media (max-width: 900px){
+  .galleryGrid{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px){
+  .galleryGrid{ grid-template-columns: 1fr; }
+}
+
+/* =========================
+   IMAGE TILES
+========================= */
+.tile{
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  border-radius: 18px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.40);
+  box-shadow: var(--shadow-soft);
+  transition: transform 180ms ease, filter 180ms ease;
+}
+
+.tile:hover{
+  transform: translateY(-2px);
+  filter: brightness(1.03);
+}
+
+.tile img{
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 560px){
+  .tile img{ height: 240px; }
+}
+
+/* =========================
+   LIGHTBOX
+========================= */
+.lightbox{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+}
+
+.lightbox.open{ display: flex; }
+
+.lightboxInner{
+  position: relative;
+  width: min(900px, 92vw);
+  border-radius: var(--radius-xl);
+  padding: 14px;
+  background: rgba(255,255,255,0.22);
+  border: 1px solid rgba(255,255,255,0.45);
+  box-shadow: var(--shadow);
+}
+
+.lightboxInner img{
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+  display: block;
+}
+
+.closeBtn{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 999px;
+  padding: 10px 12px;
+  background: rgba(255,255,255,0.45);
+  border: 1px solid rgba(255,255,255,0.6);
+  box-shadow: var(--shadow-soft);
+}
+
+.hint{
+  text-align: center;
+  margin-top: 10px;
+  opacity: 0.8;
+  font-size: 14px;
+}
