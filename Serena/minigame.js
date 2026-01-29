@@ -17,21 +17,63 @@ const choiceLabels = formEl.querySelectorAll("label.choice");
 const quiz = [
   {
     header: "Question 1",
-    question: "What is today date?",
-    choices: ["January 27", "February 14", "December 25", "April 1"],
+    question: "WHO'S BIRTHDAY IS IT",
+    choices: ["Serena", "Khoi", "Koi", "Poopy head"],
     correctIndex: 0,
   },
   {
     header: "Question 2",
-    question: "Pick the cutest vibe ✨",
-    choices: ["Sailor Moon", "Froakie", "Both", "Too hard"],
+    question: "Where are we going tomorrow✨",
+    choices: ["Zootopia", "Nicolino", "Orange chicken and lo mein", "Panda tea"],
     correctIndex: 2,
   },
   {
     header: "Question 3",
     question: "What do you say to Serena today?",
-    choices: ["Happy birthday!", "Good morning!", "Good luck!", "Nice to meet you!"],
+    choices: ["Happy birthday!", "Where's my money at", "Yawn", "Yo!"],
     correctIndex: 0,
+  },
+  {
+    header: "Question 4",
+    question: "What will Serena say when she is mad?",
+    choices: ["mimimimi", "Mommmm", "ok now partner", "nananabubu"],
+    correctIndex: 3,
+  },
+  {
+    header: "Question 5",
+    question: "What's Weewee favorite snacks?",
+    choices: ["Chips", "Mochi", "Kitkat", "sour patch kids"],
+    correctIndex: 1,
+  },
+  {
+    header: "Question 6",
+    question: "Which show did Serena like to role-play as a kid?",
+    choices: ["Tom and Jerry", "Sailor Moon", "Avatar", "Totally Spies!"],
+    correctIndex: 3,
+  },
+  {
+    header: "Question 7",
+    question: "If you are Serena and you are hungry what would you eat?",
+    choices: ["Nothing", "McDonald's", "Imma cook myself something", "hotpot"],
+    correctIndex: 1,
+  },
+  {
+    header: "Question 8",
+    question: "How pretty is Serena?",
+    choices: ["Freaking beautiful", "infinity/10", "breath takingly pretty", "All of the above"],
+    correctIndex: 3,
+  },
+  {
+    header: "Question 9",
+    question: "Who's Serena most favorite actor?",
+    choices: ["Jonathan Bailey", "Kanye West", "Michael B Jordan", "Will Smith"],
+    correctIndex: 0,
+  },
+  {
+    header: "Question 10",
+    question: "What is one of the gift that Serena is getting tomorrow?",
+    choices: ["Nothing", "scarf", "nananabubu", "a cat"],
+    correctIndex: 3,
   },
 ];
 
